@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Editory
+.idea/
+.vscode/
+*.swp
+
+# Zabalený extension
+*.zip
+*.crx
+*.pem

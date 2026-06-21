@@ -1,0 +1,151 @@
+/* Tlačítko v řádku s ostatními akcemi zásilky */
+.uschovna-export-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-left: 0;
+  padding: 0 18px;
+  height: 38px;
+  line-height: 38px;
+  border: none;
+  border-radius: 4px;
+  background: #ffd100;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background 0.15s ease;
+}
+
+.uschovna-export-btn:hover {
+  background: #ffdb3a;
+}
+
+.uschovna-export-btn--floating {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  margin: 0;
+  z-index: 2147483000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Modální okno */
+.uschovna-export-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2147483600;
+}
+
+.uschovna-export-modal {
+  width: 90%;
+  max-width: 560px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.uschovna-export-header {
+  position: relative;
+  padding: 16px 48px 16px 20px;
+  background: #ffd100;
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.uschovna-export-close {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+.uschovna-export-textarea {
+  flex: 1;
+  margin: 0;
+  padding: 14px 20px;
+  border: none;
+  resize: none;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #222;
+  min-height: 180px;
+  outline: none;
+}
+
+.uschovna-export-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 14px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+
+.uschovna-export-action {
+  padding: 0 16px;
+  height: 36px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.uschovna-export-action:hover {
+  background: #f0f0f0;
+}
+
+.uschovna-export-action.primary {
+  background: #ffd100;
+  border-color: #ffd100;
+}
+
+.uschovna-export-action.primary:hover {
+  background: #ffdb3a;
+}
+
+/* Potvrzovací bublina */
+.uschovna-export-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(12px);
+  padding: 10px 18px;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+.uschovna-export-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

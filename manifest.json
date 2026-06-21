@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Úschovna – export názvů souborů",
+  "version": "1.0.0",
+  "description": "Přidá na stránku zásilky Úschovna.cz tlačítko pro export názvů všech souborů určených ke stažení.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.uschovna.cz/zasilka/*",
+        "https://www.uschovna.cz/*/zasilka/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
