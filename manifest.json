@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Úschovna – export názvů souborů",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Přidá na stránku zásilky Úschovna.cz tlačítko pro export názvů všech souborů určených ke stažení.",
   "content_scripts": [
     {

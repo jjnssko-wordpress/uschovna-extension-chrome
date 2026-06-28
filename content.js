@@ -52,12 +52,35 @@
     }
   }
 
+  // Identifikátor zásilky – to, co je v „odkaz na zásilku:" za `/zasilka/`.
+  // Bereme z odkazu v sekci (input/textarea/anchor), s fallbackem na URL stránky.
+  function getZasilkaId() {
+    const candidates = [];
+
+    document.querySelectorAll('input, textarea').forEach(function (el) {
+      if (el.value && el.value.indexOf('/zasilka/') !== -1) candidates.push(el.value);
+    });
+    document.querySelectorAll('a[href*="/zasilka/"]').forEach(function (a) {
+      candidates.push(a.href);
+    });
+    candidates.push(location.href);
+
+    for (let i = 0; i < candidates.length; i++) {
+      const m = candidates[i].match(/\/zasilka\/([^/?#]+)/);
+      if (m && m[1]) return m[1];
+    }
+    return null;
+  }
+
   function downloadTxt(text) {
+    const id = getZasilkaId();
+    const fileName = 'uschovna-' + (id || 'nazvy-souboru') + '.txt';
+
     const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'uschovna-nazvy-souboru.txt';
+    a.download = fileName;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
